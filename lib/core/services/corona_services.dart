@@ -22,4 +22,5 @@ class CoronaServices {
       throw e;
     }
   }
+
 }

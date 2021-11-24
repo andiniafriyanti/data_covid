@@ -20,7 +20,6 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => HomeScreen()),
-
         );
       });
     });
@@ -31,8 +30,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset("images/corona.png", width: 200.0,height: 100.0,),
-                
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset("images/corona.png", width: 200.0,height: 100.0,),
+          const Text('DATA GLOBAL COVID',),
+        ],
+      ),
       ),
     );
   }

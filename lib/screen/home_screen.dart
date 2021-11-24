@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:data_covid/core/viewmodels/corona_bloc.dart';
 import 'package:data_covid/screen/detail_screen.dart';
@@ -22,9 +23,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final coronaBloc = Provider.of<CoronaBloc>(context, listen: true);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Global Data Kawal Corona"),
+        title: CupertinoSearchTextField(
+          backgroundColor: Colors.white30,
+          placeholderStyle: TextStyle(color: Colors.white),
+          prefixInsets: EdgeInsets.symmetric(horizontal: 10),
+          style: TextStyle(color: Colors.white),
+          onChanged: coronaBloc.search,
+        ),
       ),
       body: Consumer<CoronaBloc>(builder: (context, coronaBloc, _) {
         return coronaBloc.isLoading
